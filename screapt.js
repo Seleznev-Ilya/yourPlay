@@ -83,7 +83,7 @@ pieces.forEach( (itemPieces, indexPieces,array) => {
     });
 });
 let rolls = [arrGor,arrAmmos,arrArtem,arrLuka]; // тут все индексы, что нужно взять и вызвать по ним
-let a = prompt(`Городничий - 1\nАммос Федорович - 2\nАртемий Филиппович - 3\nЛука Лукич - 4\nВведи номер своего персонажа :)`,);
+let a = +prompt(`Городничий - 1\nАммос Федорович - 2\nАртемий Филиппович - 3\nЛука Лукич - 4\nВведи номер своего персонажа :)`,'0');
 function f(arg){
     arg.forEach(item => console.log(cleanSrting[item]))
 }
