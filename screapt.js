@@ -84,7 +84,7 @@ f(rolls[a - 1]);
 
 let view = (arg) => {
     let parentHTML = document.querySelector('#main');
-    parentHTML.style.backgroundColor = 'NavajoWhite';
+    parentHTML.style.backgroundColor = 'Moccasin';
     parentHTML.style.margin = 5 + '%';
     parentHTML.style.padding = 2 + '%';
     parentHTML.style.borderRadius = 10 + 'px';
