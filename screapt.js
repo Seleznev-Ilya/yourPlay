@@ -74,36 +74,61 @@ pieces.forEach((itemPieces, indexPieces) => {
     });
 });
 let rolls = [arrGor, arrAmmos, arrArtem, arrLuka];
-let a = +prompt(`Городничий - 1\nАммос Федорович - 2\nАртемий Филиппович - 3\nЛука Лукич - 4\nВведи номер своего персонажа :)`, '0');
+document.getElementById("btn").onclick = f;
+let a = 1;
 
-function f(arg) {
-    arg.forEach(item => console.log(cleanSrting[item]));
+
+function f() {
+    a = document.getElementById("txt").value;
+    view(rolls[a - 1]);
 }
 
-f(rolls[a - 1]);
-
+let set = 0;
 let view = (arg) => {
-    let parentHTML = document.querySelector('#main');
-    parentHTML.style.backgroundColor = 'Moccasin';
-    parentHTML.style.margin = 5 + '%';
-    parentHTML.style.padding = 2 + '%';
-    parentHTML.style.borderRadius = 10 + 'px';
+    // if( parentHTML ){
+    //     h1.remove();
+    //     go();
+    // }
 
-    let h1 = document.createElement('h1');
-    h1.textContent= person[a - 1];
-    parentHTML.appendChild(h1);
-    h1.style.textAlign = 'center';
-    h1.style.marginBottom = 3 + '%';
-    h1.style.padding = 2 + '%';
-    h1.style.borderBottom = 2 + 'px' + ' solid' + ' blue';
-
-    arg.forEach(item => {
-        let p = document.createElement('p');
-        p.textContent=(`${cleanSrting[item]}\n`);
-        parentHTML.appendChild(p);
-    });
+    function go() {
+        let parentHTML = document.querySelector('#main');
+        parentHTML.style.backgroundColor = 'Moccasin';
+        parentHTML.style.margin = 5 + '%';
+        parentHTML.style.padding = 2 + '%';
+        parentHTML.style.borderRadius = 10 + 'px';
 
 
+        let ancor = document.querySelector('#ancor');
+        ancor.href = '#to' + set;
+        ancor.style.transition = 1 + 's';
+
+        let an = document.createElement('a');
+        parentHTML.appendChild(an);
+        an.name = 'to' + set;
+        set++;
+        let h1 = document.createElement('h1');
+        h1.textContent = person[a - 1];
+        an.appendChild(h1);
+        h1.style.textAlign = 'center';
+        h1.style.marginBottom = 3 + '%';
+        h1.style.padding = 2 + '%';
+        h1.style.borderBottom = 2 + 'px' + ' solid' + ' blue';
+
+        arg.forEach(item => {
+            let p = document.createElement('p');
+            p.textContent = (`${cleanSrting[item]}\n`);
+            parentHTML.appendChild(p);
+        });
+        this.parentNode.removeChild(this);
+    }
+
+    go();
 
 };
-view(rolls[a - 1]);
+document.getElementById("bottom1").onclick = f2;
+
+function f2() {
+    location.reload()
+}
+
+

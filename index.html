@@ -2,11 +2,27 @@
 <html lang = "en">
 <head>
    <meta charset = "UTF-8">
-   <link rel = "stylesheet" href = "style.css">
+   <link rel = "stylesheet" href = "style/style.css">
+   <link rel = "stylesheet" href = "style/normalize.css-master">
    <title>hw_2</title>
 </head>
 <body>
-<div id="main"></div>
+<section class="form">
+   <a name="up" ></a>
+   <form action = "#">
+      <label for = "txt">Городничий - 1<br>
+         Аммос Федорович - 2<br>
+         Артемий Филиппович - 3<br>
+         Лука Лукич - 4<br>
+         Введи номер своего персонажа :)</label> <br>
+      <input type = "text" id="txt" placeholder="от 1 до 4">
+      <a id="ancor"><input type = "button" id="btn" value="Go!"></a>
+   </form>
+</section>
+
+
+   <div id="main"></div>
+<a href = "#up"><div id="bottom1"><p>UP</p></div></a>
 <script src="screapt.js"></script>
 </body>
 </html>
