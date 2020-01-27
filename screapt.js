@@ -38,13 +38,6 @@ let str = `Городничий. Я пригласил вас, господа, �
 let person = ["Городничий.", "Аммос Федорович.", "Артемий Филиппович.", "Лука Лукич."];
 let pointsStart = [],pieces = [],cleanSrting =[],arrGor =[],arrAmmos =[],arrArtem =[],arrLuka =[],i = 1;
 person.forEach( item => {
-    // let pos = 0;
-    // while (true) {
-    //     let foundPos = str.indexOf(item, pos);
-    //     if (foundPos === -1) break;
-    //     pointsStart.push(foundPos);
-    //     pos = foundPos + 1;
-    // }
     let pos = -1;
     while ((pos = str.indexOf(item, pos + 1)) !== -1) {
         pointsStart.push(pos);
@@ -52,7 +45,7 @@ person.forEach( item => {
 });
 pointsStart.sort(function(a, b) { return a - b; });
 pointsStart.sort(function(a, b) {
-    pieces.push(str.slice( b, a ) ); //  массив С именами
+    pieces.push(str.slice( b, a ) ); 
 });
 pieces.forEach( (itemPieces, indexPieces) => {
     person.forEach( itemPerson => {
@@ -74,11 +67,11 @@ pieces.forEach( (itemPieces, indexPieces) => {
                     break;
             }
             itemPieces = itemPieces.slice(itemPerson.length);
-            cleanSrting.push(`${i++})${itemPieces}`); //  массив БЕЗ имен
+            cleanSrting.push(`${i++})${itemPieces}`);
         }
     });
 });
-let rolls = [arrGor,arrAmmos,arrArtem,arrLuka]; // тут все индексы, что нужно взять и вызвать по ним
+let rolls = [arrGor,arrAmmos,arrArtem,arrLuka];
 let a = +prompt(`Городничий - 1\nАммос Федорович - 2\nАртемий Филиппович - 3\nЛука Лукич - 4\nВведи номер своего персонажа :)`,'0');
 function f(arg){
     arg.forEach(item => console.log(cleanSrting[item]))
