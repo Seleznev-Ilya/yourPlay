@@ -36,32 +36,34 @@ let str = `Городничий. Я пригласил вас, господа, �
 Лука Лукич. Не приведи Бог служить по ученой части! Всего боишься: всякий мешается, всякому хочется показать, что он тоже умный человек.
 Городничий. Это бы еще ничего, — инкогнито проклятое! Вдруг заглянет: «А, вы здесь, голубчики! А кто, скажет, здесь судья?» — «Ляпкин-Тяпкин». — «А подать сюда Ляпкина-Тяпкина! А кто попечитель богоугодных заведений?» — «Земляника». — «А подать сюда Землянику!» Вот что худо!`;
 let person = ["Городничий.", "Аммос Федорович.", "Артемий Филиппович.", "Лука Лукич."];
-let pointsStart = [],pieces = [],cleanSrting =[],arrGor =[],arrAmmos =[],arrArtem =[],arrLuka =[],i = 1;
-person.forEach( item => {
+let pointsStart = [], pieces = [], cleanSrting = [], arrGor = [], arrAmmos = [], arrArtem = [], arrLuka = [], i = 1;
+person.forEach(item => {
     let pos = -1;
     while ((pos = str.indexOf(item, pos + 1)) !== -1) {
         pointsStart.push(pos);
     }
 });
-pointsStart.sort(function(a, b) { return a - b; });
-pointsStart.sort(function(a, b) {
-    pieces.push(str.slice( b, a ) ); 
+pointsStart.sort(function (a, b) {
+    return a - b;
 });
-pieces.forEach( (itemPieces, indexPieces) => {
-    person.forEach( itemPerson => {
-        if(itemPieces.includes(itemPerson)){
+pointsStart.sort(function (a, b) {
+    pieces.push(str.slice(b, a));
+});
+pieces.forEach((itemPieces, indexPieces) => {
+    person.forEach(itemPerson => {
+        if (itemPieces.includes(itemPerson)) {
             switch (itemPerson) {
                 case "Городничий.":
-                    if(!arrGor.includes(indexPieces)) arrGor.push(indexPieces);
+                    if (!arrGor.includes(indexPieces)) arrGor.push(indexPieces);
                     break;
                 case "Аммос Федорович.":
-                    if(!arrAmmos.includes(indexPieces)) arrAmmos.push(indexPieces);
+                    if (!arrAmmos.includes(indexPieces)) arrAmmos.push(indexPieces);
                     break;
                 case "Артемий Филиппович.":
-                    if(!arrArtem.includes(indexPieces)) arrArtem.push(indexPieces);
+                    if (!arrArtem.includes(indexPieces)) arrArtem.push(indexPieces);
                     break;
                 case "Лука Лукич.":
-                    if(!arrLuka.includes(indexPieces)) arrLuka.push(indexPieces);
+                    if (!arrLuka.includes(indexPieces)) arrLuka.push(indexPieces);
                     break;
                 default:
                     break;
@@ -71,9 +73,37 @@ pieces.forEach( (itemPieces, indexPieces) => {
         }
     });
 });
-let rolls = [arrGor,arrAmmos,arrArtem,arrLuka];
-let a = +prompt(`Городничий - 1\nАммос Федорович - 2\nАртемий Филиппович - 3\nЛука Лукич - 4\nВведи номер своего персонажа :)`,'0');
-function f(arg){
-    arg.forEach(item => console.log(cleanSrting[item]))
+let rolls = [arrGor, arrAmmos, arrArtem, arrLuka];
+let a = +prompt(`Городничий - 1\nАммос Федорович - 2\nАртемий Филиппович - 3\nЛука Лукич - 4\nВведи номер своего персонажа :)`, '0');
+
+function f(arg) {
+    arg.forEach(item => console.log(cleanSrting[item]));
 }
+
 f(rolls[a - 1]);
+
+let view = (arg) => {
+    let parentHTML = document.querySelector('#main');
+    parentHTML.style.backgroundColor = 'NavajoWhite';
+    parentHTML.style.margin = 5 + '%';
+    parentHTML.style.padding = 2 + '%';
+    parentHTML.style.borderRadius = 10 + 'px';
+
+    let h1 = document.createElement('h1');
+    h1.textContent= person[a - 1];
+    parentHTML.appendChild(h1);
+    h1.style.textAlign = 'center';
+    h1.style.marginBottom = 3 + '%';
+    h1.style.padding = 2 + '%';
+    h1.style.borderBottom = 2 + 'px' + ' solid' + ' blue';
+
+    arg.forEach(item => {
+        let p = document.createElement('p');
+        p.textContent=(`${cleanSrting[item]}\n`);
+        parentHTML.appendChild(p);
+    });
+
+
+
+};
+view(rolls[a - 1]);
