@@ -21,13 +21,13 @@ a{
 
 }
 #btn{
-    padding: 2px 4px;
+    padding: 6px 7px;
     border: 1px solid darkgray;
     border-radius: 5px;
     background-color: whitesmoke;
-    font-size: 22px;
+    font-size: 25px;
     outline: none;
-    margin-left: 77%;
+    margin-left: 75%;
 }
 #btn:hover{
     border: 1px solid whitesmoke;
