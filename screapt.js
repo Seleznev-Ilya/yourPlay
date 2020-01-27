@@ -38,17 +38,17 @@ let str = `Городничий. Я пригласил вас, господа, �
 let person = ["Городничий.", "Аммос Федорович.", "Артемий Филиппович.", "Лука Лукич."];
 let pointsStart = [],pieces = [],cleanSrting =[],arrGor =[],arrAmmos =[],arrArtem =[],arrLuka =[],i = 1;
 person.forEach( item => {
-    let pos = 0;
-    while (true) {
-        let foundPos = str.indexOf(item, pos);
-        if (foundPos === -1) break;
-        pointsStart.push(foundPos);
-        pos = foundPos + 1;
-    }
-    // let pos = -1;
-    // while ((pos = str.indexOf(item, pos + 1)) !== -1) {
-    //     alert( pos );
+    // let pos = 0;
+    // while (true) {
+    //     let foundPos = str.indexOf(item, pos);
+    //     if (foundPos === -1) break;
+    //     pointsStart.push(foundPos);
+    //     pos = foundPos + 1;
     // }
+    let pos = -1;
+    while ((pos = str.indexOf(item, pos + 1)) !== -1) {
+        pointsStart.push(pos);
+    }
 });
 pointsStart.sort(function(a, b) { return a - b; });
 pointsStart.sort(function(a, b) {
@@ -57,22 +57,21 @@ pointsStart.sort(function(a, b) {
 pieces.forEach( (itemPieces, indexPieces) => {
     person.forEach( itemPerson => {
         if(itemPieces.includes(itemPerson)){
-            if( itemPerson === "Городничий."){
-                if(!arrGor.includes(indexPieces)){
-                    arrGor.push(indexPieces)
-                }
-            } else if(itemPerson === "Аммос Федорович."){
-                if(!arrAmmos.includes(indexPieces)){
-                    arrAmmos.push(indexPieces)
-                }
-            } else if(itemPerson === "Артемий Филиппович."){
-                if(!arrArtem.includes(indexPieces)){
-                    arrArtem.push(indexPieces)
-                }
-            } else if(itemPerson === "Лука Лукич."){
-                if(!arrLuka.includes(indexPieces)){
-                    arrLuka.push(indexPieces)
-                }
+            switch (itemPerson) {
+                case "Городничий.":
+                    if(!arrGor.includes(indexPieces)) arrGor.push(indexPieces);
+                    break;
+                case "Аммос Федорович.":
+                    if(!arrAmmos.includes(indexPieces)) arrAmmos.push(indexPieces);
+                    break;
+                case "Артемий Филиппович.":
+                    if(!arrArtem.includes(indexPieces)) arrArtem.push(indexPieces);
+                    break;
+                case "Лука Лукич.":
+                    if(!arrLuka.includes(indexPieces)) arrLuka.push(indexPieces);
+                    break;
+                default:
+                    break;
             }
             itemPieces = itemPieces.slice(itemPerson.length);
             cleanSrting.push(`${i++})${itemPieces}`); //  массив БЕЗ имен
