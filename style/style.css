@@ -1,6 +1,7 @@
 body{
     margin: 0;
     font-family: 'Open Sans', sans-serif;
+    background-color: goldenrod;
 }
 a{
     transition: 1s linear;
@@ -15,6 +16,7 @@ a{
     width: 90%;
     font-size: 22px;
     margin: 7px auto;
+    border-radius: 7px;
 
 
 }
@@ -25,10 +27,11 @@ a{
     background-color: whitesmoke;
     font-size: 22px;
     outline: none;
+    margin-left: 77%;
 }
 #btn:hover{
     border: 1px solid whitesmoke;
-    background-color: darkgray;
+    background-color: gold;
 }
 form{
     text-align: left;
@@ -51,10 +54,16 @@ form{
     border-radius: 5px;
     text-align: center;
     vertical-align: center;
-    padding: 3px;
+    padding: 4px;
     margin: 50px auto;
+    border: 2px solid transparent;
+}
+p{
+    margin: 0;
 }
 #bottom1:hover{
-    border: 2px solid deepskyblue;
-    padding: 1px;
+    border: 3px solid deepskyblue;
+    padding: 3px;
+    transition: .1s linear;
+
 }

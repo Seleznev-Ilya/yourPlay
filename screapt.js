@@ -92,7 +92,7 @@ let view = (arg) => {
 
     function go() {
         let parentHTML = document.querySelector('#main');
-        parentHTML.style.backgroundColor = 'Moccasin';
+        parentHTML.style.backgroundColor = 'Khaki';
         parentHTML.style.margin = 5 + '%';
         parentHTML.style.padding = 2 + '%';
         parentHTML.style.borderRadius = 10 + 'px';
